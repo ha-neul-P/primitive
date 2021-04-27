@@ -1,0 +1,14 @@
+# Target labels
+ dep_glad
+# Source files and their labels
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/dep_glad
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/9af948c430056325595e11b6b411aae0/dep_glad.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb6d59984772ca86824405a3c81ff911/dep_glad-complete.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-build.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-configure.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-download.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-install.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-mkdir.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-patch.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-test.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-update.rule

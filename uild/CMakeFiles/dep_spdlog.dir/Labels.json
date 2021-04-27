@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/dep_spdlog"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/9af948c430056325595e11b6b411aae0/dep_spdlog.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb6d59984772ca86824405a3c81ff911/dep_spdlog-complete.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-build.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-configure.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-download.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-install.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-patch.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-test.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"dep_spdlog"
+		],
+		"name" : "dep_spdlog"
+	}
+}

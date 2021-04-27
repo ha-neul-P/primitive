@@ -1,0 +1,14 @@
+# Target labels
+ dep_spdlog
+# Source files and their labels
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/dep_spdlog
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/9af948c430056325595e11b6b411aae0/dep_spdlog.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb6d59984772ca86824405a3c81ff911/dep_spdlog-complete.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-build.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-configure.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-download.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-install.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-mkdir.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-patch.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-test.rule
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/787b0691876bacdbb81e83518572834a/dep_spdlog-update.rule

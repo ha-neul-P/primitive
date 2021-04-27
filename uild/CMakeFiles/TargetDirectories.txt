@@ -1,0 +1,6 @@
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/second_opengl_example.dir
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/dep_spdlog.dir
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/dep_glfw.dir
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/dep_glad.dir
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/ALL_BUILD.dir
+C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/ZERO_CHECK.dir

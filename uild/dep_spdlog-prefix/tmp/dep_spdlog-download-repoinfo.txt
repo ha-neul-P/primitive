@@ -1,0 +1,5 @@
+method=git
+repository=https://github.com/gabime/spdlog.git
+remote=origin
+source_dir=C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/dep_spdlog-prefix/src/dep_spdlog
+

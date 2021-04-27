@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\uild\CMakeFiles\cb110495cc6fcb33092b0293722c2c13\dep_glfw-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\uild\CMakeFiles\cb110495cc6fcb33092b0293722c2c13\dep_glfw-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\uild\CMakeFiles\cb110495cc6fcb33092b0293722c2c13\dep_glfw-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\uild\CMakeFiles\cb110495cc6fcb33092b0293722c2c13\dep_glfw-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\uild\CMakeFiles\cb110495cc6fcb33092b0293722c2c13\dep_glfw-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\uild\CMakeFiles\cb110495cc6fcb33092b0293722c2c13\dep_glfw-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\uild\CMakeFiles\cb110495cc6fcb33092b0293722c2c13\dep_glfw-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\uild\CMakeFiles\cb110495cc6fcb33092b0293722c2c13\dep_glfw-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\uild\CMakeFiles\cb6d59984772ca86824405a3c81ff911\dep_glfw-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\uild\CMakeFiles\9af948c430056325595e11b6b411aae0\dep_glfw.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\phn24\Documents\work\cg\second_opengl_example\uild\CMakeFiles\dep_glfw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{93D832AB-D681-3FF4-B075-0C4DDF221CA4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,5 @@
+method=git
+repository=https://github.com/Dav1dde/glad
+remote=origin
+source_dir=C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/dep_glad-prefix/src/dep_glad
+

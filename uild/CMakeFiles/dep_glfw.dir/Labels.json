@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/dep_glfw"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/9af948c430056325595e11b6b411aae0/dep_glfw.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb6d59984772ca86824405a3c81ff911/dep_glfw-complete.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb110495cc6fcb33092b0293722c2c13/dep_glfw-build.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb110495cc6fcb33092b0293722c2c13/dep_glfw-configure.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb110495cc6fcb33092b0293722c2c13/dep_glfw-download.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb110495cc6fcb33092b0293722c2c13/dep_glfw-install.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb110495cc6fcb33092b0293722c2c13/dep_glfw-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb110495cc6fcb33092b0293722c2c13/dep_glfw-patch.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb110495cc6fcb33092b0293722c2c13/dep_glfw-test.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb110495cc6fcb33092b0293722c2c13/dep_glfw-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"dep_glfw"
+		],
+		"name" : "dep_glfw"
+	}
+}

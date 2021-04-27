@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/dep_glad"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/9af948c430056325595e11b6b411aae0/dep_glad.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/cb6d59984772ca86824405a3c81ff911/dep_glad-complete.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-build.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-configure.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-download.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-install.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-patch.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-test.rule"
+		},
+		{
+			"file" : "C:/Users/phn24/Documents/work/cg/second_opengl_example/uild/CMakeFiles/c2cb43d4df5df49a6f3fd2bdaff67777/dep_glad-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"dep_glad"
+		],
+		"name" : "dep_glad"
+	}
+}
