@@ -364,13 +364,13 @@ void Context::Create_Sphere(float radius, int lati_seg, int longi_seg){
 
     //indices[0]
     vertices_sphere.push_back(0.0f);
-    vertices_sphere.push_back(1.0f);
+    vertices_sphere.push_back(1.0f*scale.y);
     vertices_sphere.push_back(0.0f);
     vertices_sphere.push_back(0.5f);
     vertices_sphere.push_back(0.0f);
     //indices[1]
     vertices_sphere.push_back(0.0f);
-    vertices_sphere.push_back(-1.0f);
+    vertices_sphere.push_back(-1.0f*scale.y);
     vertices_sphere.push_back(0.0f);
     vertices_sphere.push_back(0.5f);
     vertices_sphere.push_back(1.0f);
