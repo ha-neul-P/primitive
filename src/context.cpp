@@ -130,38 +130,42 @@ void Context::Render(){
             m_cameraPos = glm::vec3(0.0f,0.0f,3.0f);
         }
         ImGui::Separator();
-        ImGui::LabelText("#vertices",  &counter1);
-        ImGui::LabelText("#triangles",  &counter2);
+        ImGui::LabelText("#vertices", "%d", m_vertices_count);
+        ImGui::LabelText("#triangles","%d", m_triangles_count);
         const char* shape[] = { "Cube", "Cylinder", "Sphere", "Donut"};
         static int shape_item_current = 0; // static을 지우면 0으로 계속 초기화돼서 다른 것을 선택할수 없다.
         ImGui::Combo("Primitive", &shape_item_current, shape, IM_ARRAYSIZE(shape));
         checked_shape = shape_item_current;
+        if(checked_shape==1){
+            ImGui::DragInt("# segment", &m_cylinder_segment, 1.0f,4,100);
+            ImGui::DragFloat("upper radius", &m_upper_radius, 0.01f, 0.1f, 1.0f);
+            ImGui::DragFloat("lower radius", &m_lower_radius, 0.01f, 0.1f, 1.0f);
+            ImGui::DragFloat("height", &m_height_cylinder, 0.05f,0.5f,1.0f);
+        }
+        if(checked_shape==2){
+            ImGui::DragInt("# lati.seg", &m_lati_segment, 1.0f,4,100);
+            ImGui::DragInt("# iongi.seg", &m_longi_segment, 1.0f,4,100);
+        }
+        if(checked_shape==3){
+            ImGui::DragInt("# outer segment", &m_donut_segment, 1.0f,3,100);
+            ImGui::DragInt("# inner segment", &m_circle_segment, 1.0f,3,100);
+            ImGui::DragFloat("outer radius", &m_outer_radius, 0.01f, 1.0f, 1.5f);
+            ImGui::DragFloat("inner redius", &m_inner_radius, 0.01f,0.1f,0.9f);
+        }
         const char* texture[] = { "Wood", "Earth", "Metal"};
         static int texture_item_current = 0;
         ImGui::Combo("Texture", &texture_item_current, texture, IM_ARRAYSIZE(texture));
         checked_texture = texture_item_current;
-        if(checked_shape==1){
-            ImGui::DragInt("# segment", &m_cylinder_segment, 16,4,100);
-            ImGui::DragFloat("upper radius", &m_upper_radius, 0.5f, 0.1f, 1.0f);
-            ImGui::DragFloat("lower radius", &m_lower_radius, 0.5f, 0.1f, 1.0f);
-            ImGui::DragFloat("height", &m_height_cylinder, 0.75f,0.5f,1.0f);
-        }
-        if(checked_shape==2){
-            ImGui::DragInt("# lati.seg", &m_lati_segment, 16,4,100);
-            ImGui::DragInt("# iongi.seg", &m_longi_segment, 16,4,100);
-        }
-        if(checked_shape==3){
-            ImGui::DragInt("# outer segment", &m_donut_segment, 16,3,100);
-            ImGui::DragInt("# inner segment", &m_circle_segment, 16,3,100);
-            ImGui::DragFloat("outer radius", &m_outer_radius, 1.0f, 1.0f, 2.0f);
-            ImGui::DragFloat("inner redius", &m_inner_radius, 0.5f,0.1f,0.9f);
-        }
         ImGui::Separator();
-        ImGui::DragFloat3("rotation", glm::value_ptr(m_cameraPos), 0.01f);
-        ImGui::DragFloat3("scale", glm::value_ptr(m_cameraPos), 0.01f);
+        ImGui::DragFloat3("rotation",glm::value_ptr(rotation), 1.0f);
+        ImGui::DragFloat3("scale", glm::value_ptr(scale), 0.01f,0.1f,1.5f);
         ImGui::Checkbox("animation", &check);
-        ImGui::DragFloat3("rot speed", glm::value_ptr(m_cameraPos), 0.01f);
-        ImGui::Button("reset transform");
+        ImGui::DragFloat3("rot speed", glm::value_ptr(rot_speed), 0.1f,0.0f,3.0f);
+        if(ImGui::Button("reset transform")){
+            scale.x=1.0f, scale.y=1.0f, scale.z=1.0f,
+            rotation.x=0.0f, rotation.y=0.0f, rotation.z=0.0f,
+            rot_speed.x=1.0f, rot_speed.y=1.0f, rot_speed.z=1.0f;
+        }
     }
     ImGui::End();
 
@@ -201,19 +205,23 @@ void Context::Render(){
         (float)m_width / (float)m_height, 0.01f, 20.0f);
 
     auto view = glm::lookAt(m_cameraPos, m_cameraPos + m_cameraFront, m_cameraUp);
-
     
     auto model = glm::translate(glm::mat4(1.0f), glm::vec3( 0.0f, 0.0f, 0.0f));
+
+    model = glm::rotate(model,glm::radians(rotation.x),glm::vec3(1.0f,0.0f,0.0f));
+    model = glm::rotate(model,glm::radians(rotation.y),glm::vec3(0.0f,1.0f,0.0f));
+    model = glm::rotate(model,glm::radians(rotation.z),glm::vec3(0.0f,0.0f,1.0f));
+
     if(check==true){
-    model = glm::rotate(model,
-        glm::radians((float)glfwGetTime() * 120.0f),
-        glm::vec3(1.0f, 0.5f, 0.0f));
+        model = glm::rotate(model,glm::radians((float)glfwGetTime()*30.0f*rot_speed.x),glm::vec3(1.0f,0.0f,0.0f));
+        model = glm::rotate(model,glm::radians((float)glfwGetTime()*30.0f*rot_speed.y),glm::vec3(0.0f,1.0f,0.0f));
+        model = glm::rotate(model,glm::radians((float)glfwGetTime()*30.0f*rot_speed.z),glm::vec3(0.0f,0.0f,1.0f));
     }
+    
     auto transform = projection * view * model;
     m_program->SetUniform("transform", transform);
-    glDrawElements(GL_LINE_STRIP, m_indexCount, GL_UNSIGNED_INT, 0);
+    glDrawElements(GL_TRIANGLES, m_indexCount, GL_UNSIGNED_INT, 0);
     //GL_LINE_STRIP  GL_TRIANGLES
-    
 }
 
 void Context::Create_Cube(){
@@ -258,7 +266,6 @@ void Context::Create_Cube(){
       20, 22, 21, 22, 20, 23,
     };
 
-    
     m_vertexLayout = VertexLayout::Create();
     m_vertexBuffer = Buffer::CreateWithData(GL_ARRAY_BUFFER,GL_STATIC_DRAW, vertices, sizeof(float)*120);
     // GL_STATIC_DRAW = GL_ +  STATIC,DYNAMIC,STREAM,DRAW,COPY의 조합
@@ -269,11 +276,10 @@ void Context::Create_Cube(){
     m_indexBuffer=Buffer::CreateWithData(GL_ELEMENT_ARRAY_BUFFER, GL_STATIC_DRAW,
         indices, sizeof(uint32_t)*36);
 
-    m_vertices_count = 24;
+    m_vertices_count = 40;
     m_triangles_count = 12;
 
     m_indexCount = 36;
-
 }
 
 void Context::Create_Cylinder(float upper_radius,float lower_radius,float height_cylinder,int segment = 0){
@@ -285,44 +291,45 @@ void Context::Create_Cylinder(float upper_radius,float lower_radius,float height
     vertices_cylinder.push_back(0.0f);
     vertices_cylinder.push_back(height_cylinder/2);
     vertices_cylinder.push_back(0.0f);
-    
-
+    vertices_cylinder.push_back(0.5f);
+    vertices_cylinder.push_back(0.0f);
 
     for(int i=0; i<= segment; i++){
         float angle = (360.0f / segment * i) * pi / 180.0f;
         float x = cosf(angle) * upper_radius;
         float z = sinf(angle) * upper_radius;
-        vertices_cylinder.push_back(x);
-        vertices_cylinder.push_back(height_cylinder/2);
-        vertices_cylinder.push_back(z);
+        vertices_cylinder.push_back(x*scale.x);
+        vertices_cylinder.push_back(height_cylinder/2*scale.y);
+        vertices_cylinder.push_back(z*scale.z);
+        vertices_cylinder.push_back(i/(float)segment);
+        vertices_cylinder.push_back(1.0f);
         x = cosf(angle) * lower_radius;
         z = sinf(angle) * lower_radius;
-        vertices_cylinder.push_back(x);
+        vertices_cylinder.push_back(x*scale.x);
         vertices_cylinder.push_back(-height_cylinder/2);
-        vertices_cylinder.push_back(z);
-        
-        
+        vertices_cylinder.push_back(z*scale.z);
+        vertices_cylinder.push_back(i/(float)segment);
+        vertices_cylinder.push_back(0.0f);
     }
 
     vertices_cylinder.push_back(0.0f);
     vertices_cylinder.push_back(-height_cylinder/2);
     vertices_cylinder.push_back(0.0f);
-    
-    
+    vertices_cylinder.push_back(0.5f);
+    vertices_cylinder.push_back(1.0f);
+      
     //upper_circle
     for(int i=0; i<segment; i++){
         indices.push_back(0);
         indices.push_back(i*2+1);
         indices.push_back(i*2+3);
     }
-
     //wall
     for(int i=0; i<segment*2; i++){
         indices.push_back(i+1);
         indices.push_back(i+2);
         indices.push_back(i+3);
     }
-
     //lower_circle
     for(int i=0; i<segment; i++){
         indices.push_back(segment*2+3);
@@ -330,20 +337,19 @@ void Context::Create_Cylinder(float upper_radius,float lower_radius,float height
         indices.push_back(i*2+4);
     }
 
-
     m_vertexLayout = VertexLayout::Create();
     m_vertexBuffer = Buffer::CreateWithData(GL_ARRAY_BUFFER,
         GL_STATIC_DRAW, vertices_cylinder.data(), sizeof(float) * vertices_cylinder.size());
     // GL_STATIC_DRAW = GL_ +  STATIC,DYNAMIC,STREAM,DRAW,COPY의 조합
 
-    m_vertexLayout->SetAttrib(0, 3, GL_FLOAT, GL_FALSE, sizeof(float)*3, 0);
-    //m_vertexLayout->SetAttrib(2, 2, GL_FLOAT, GL_FALSE, sizeof(float)*5, 3);
+    m_vertexLayout->SetAttrib(0, 3, GL_FLOAT, GL_FALSE, sizeof(float)*5, 0);
+    m_vertexLayout->SetAttrib(2, 2, GL_FLOAT, GL_FALSE, sizeof(float)*5, sizeof(float)*3);
    
     m_indexBuffer=Buffer::CreateWithData(GL_ELEMENT_ARRAY_BUFFER, 
         GL_STATIC_DRAW, indices.data(), sizeof(uint32_t) * indices.size());
 
     m_indexCount = (int)indices.size();
-    m_vertices_count = vertices_cylinder.size()/5;
+    m_vertices_count = (segment+2)*5;
     m_triangles_count = indices.size()/3;    
 }
 
@@ -360,24 +366,28 @@ void Context::Create_Sphere(float radius, int lati_seg, int longi_seg){
     vertices_sphere.push_back(0.0f);
     vertices_sphere.push_back(1.0f);
     vertices_sphere.push_back(0.0f);
+    vertices_sphere.push_back(0.5f);
+    vertices_sphere.push_back(0.0f);
     //indices[1]
     vertices_sphere.push_back(0.0f);
     vertices_sphere.push_back(-1.0f);
     vertices_sphere.push_back(0.0f);
-    
+    vertices_sphere.push_back(0.5f);
+    vertices_sphere.push_back(1.0f);
 
-
-    for(int i=1; i< lati_seg; i++){
-        float angle_a = (180.0f / lati_seg * i + 90.0f) * pi / 180.0f;
-        float y = sinf(angle_a);
-        circle_radius = cosf(angle_a);
+    for(int i=1,k=(lati_seg-1); i< lati_seg&&k>=1; i++, k--){
+        float angle_alpha = (180.0f / lati_seg * i + 90.0f) * pi / 180.0f;
+        float y = sinf(angle_alpha);
+        circle_radius = cosf(angle_alpha);
         for(int j=0; j<=longi_seg; j++){
-            float angle_b = (360.0f / longi_seg * j) * pi / 180.0f;
-            float x =circle_radius * cosf(angle_b);
-            float z =circle_radius * sinf(angle_b);
-            vertices_sphere.push_back(x);
-            vertices_sphere.push_back(y);
-            vertices_sphere.push_back(z);
+            float angle_beta = (360.0f / longi_seg * j) * pi / 180.0f;
+            float x =circle_radius * cosf(angle_beta);
+            float z =circle_radius * sinf(angle_beta);
+            vertices_sphere.push_back(x*scale.x);
+            vertices_sphere.push_back(y*scale.y);
+            vertices_sphere.push_back(z*scale.z);
+            vertices_sphere.push_back(j/(float)longi_seg);
+            vertices_sphere.push_back(k/(float)lati_seg);
         }  
     }
     
@@ -412,21 +422,20 @@ void Context::Create_Sphere(float radius, int lati_seg, int longi_seg){
         floor_count+=(longi_seg+1);        
     }
     
-
     m_vertexLayout = VertexLayout::Create();
     m_vertexBuffer = Buffer::CreateWithData(GL_ARRAY_BUFFER,
         GL_STATIC_DRAW, vertices_sphere.data(),sizeof(float) * vertices_sphere.size());
     // GL_STATIC_DRAW = GL_ +  STATIC,DYNAMIC,STREAM,DRAW,COPY의 조합
 
-    m_vertexLayout->SetAttrib(0, 3, GL_FLOAT, GL_FALSE, sizeof(float)*3, 0);
-    //m_vertexLayout->SetAttrib(2, 2, GL_FLOAT, GL_FALSE, sizeof(float)*5, 3);
+    m_vertexLayout->SetAttrib(0, 3, GL_FLOAT, GL_FALSE, sizeof(float)*5, 0);
+    m_vertexLayout->SetAttrib(2, 2, GL_FLOAT, GL_FALSE, sizeof(float)*5, sizeof(float)*3);
    
     m_indexBuffer=Buffer::CreateWithData(GL_ELEMENT_ARRAY_BUFFER, 
         GL_STATIC_DRAW, indices.data(), sizeof(uint32_t) * indices.size());
 
     m_indexCount = (int)indices.size();
-    m_vertices_count = vertices_sphere.size()/5;
     m_triangles_count = indices.size()/3;
+    m_vertices_count = ((lati_seg-1) * longi_seg +2)*5;
 }
 
 void Context::Create_Donut(float inner_radius, float outer_radius, int circle_segment, int donut_segment){
@@ -436,20 +445,18 @@ std::vector<float> vertices_donut;
     float circle_radius = (outer_radius-inner_radius)/2;
     float circle_center = (outer_radius+inner_radius)/2;
 
-
-
     for(int i=0; i<= donut_segment; i++){
-        float angle_a = (360.0f / donut_segment * i) * pi / 180.0f;
+        float angle_alpha = (360.0f / donut_segment * i) * pi / 180.0f;
         for(int j=0; j<=circle_segment; j++){
-            float angle_b = (360.0f / circle_segment * j) * pi / 180.0f;
-            float x = circle_center * cosf(angle_a) - circle_radius * cosf(angle_b) * cosf(angle_a);
-            float y = circle_radius * sinf(angle_b);
-            float z = circle_center * sinf(angle_a) - circle_radius * cosf(angle_b) * sinf(angle_a);
+            float angle_beta = (360.0f / circle_segment * j) * pi / 180.0f;
+            float x = circle_center * cosf(angle_alpha) - circle_radius * cosf(angle_beta) * cosf(angle_alpha);
+            float y = circle_radius * sinf(angle_beta);
+            float z = circle_center * sinf(angle_alpha) - circle_radius * cosf(angle_beta) * sinf(angle_alpha);
             //float x_texture=i/(float)donut_segment;
             //float y_texture=j/(float)circle_segment;
-            vertices_donut.push_back(x);
-            vertices_donut.push_back(y);
-            vertices_donut.push_back(z);
+            vertices_donut.push_back(x*scale.x);
+            vertices_donut.push_back(y*scale.y);
+            vertices_donut.push_back(z*scale.z);
             vertices_donut.push_back(i/(float)donut_segment);
             vertices_donut.push_back(j/(float)circle_segment);
         } 
@@ -480,7 +487,6 @@ std::vector<float> vertices_donut;
         GL_STATIC_DRAW, indices.data(), sizeof(uint32_t) * indices.size());
 
     m_indexCount = (int)indices.size();
-    
-    
-
+    m_triangles_count = indices.size()/3;
+    m_vertices_count = donut_segment * circle_segment*5;
 }

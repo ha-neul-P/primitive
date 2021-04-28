@@ -28,15 +28,10 @@ private:
     Context() {}
     bool Init();
     ProgramUPtr m_program;
-
     VertexLayoutUPtr m_vertexLayout;
     BufferUPtr m_vertexBuffer;
     BufferUPtr m_indexBuffer;
-
-    int m_indexCount { 6 };
-
     TextureUPtr m_texture;
-
     	
     // clear color
     glm::vec4 m_clearColor { glm::vec4(0.1f, 0.5f, 0.2f, 0.0f) };
@@ -59,23 +54,25 @@ private:
 
     //sphere
     float m_phrase_radius=1.0f;
-    int m_lati_segment=8, m_longi_segment=4;
+    int m_lati_segment=16, m_longi_segment=32;
 
     //donut
     float m_inner_radius = 0.5f, m_outer_radius=1.0f;
-    int m_circle_segment=4, m_donut_segment=4;
+    int m_circle_segment=16, m_donut_segment=32;
     int m_donut_draw_sup_num = 0;
-
 
     //animation check box
     bool check = false;
 
+    //공통 변수
+    glm::vec3 scale = glm::vec3(1.0f,1.0f,1.0f);
+    glm::vec3 rotation = glm::vec3(0.0f,0.0f,0.0f);
+    glm::vec3 rot_speed = glm::vec3(1.0f,1.0f,1.0f);
     int m_vertices_count = 0;
     int m_triangles_count = 0;
-    char counter1 = (char)m_vertices_count;
-    char counter2 = (char)m_vertices_count;
     int checked_shape = 0;
     int checked_texture = 0;
+    int m_indexCount { 6 };
 
 };
 
