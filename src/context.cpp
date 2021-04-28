@@ -160,7 +160,7 @@ void Context::Render(){
         ImGui::DragFloat3("rotation",glm::value_ptr(rotation), 1.0f);
         ImGui::DragFloat3("scale", glm::value_ptr(scale), 0.01f,0.1f,1.5f);
         ImGui::Checkbox("animation", &check);
-        ImGui::DragFloat3("rot speed", glm::value_ptr(rot_speed), 0.1f,0.0f,3.0f);
+        ImGui::DragFloat3("rot speed", glm::value_ptr(rot_speed), 0.1f,0.0f,10.0f);
         if(ImGui::Button("reset transform")){
             scale.x=1.0f, scale.y=1.0f, scale.z=1.0f,
             rotation.x=0.0f, rotation.y=0.0f, rotation.z=0.0f,
@@ -289,7 +289,7 @@ void Context::Create_Cylinder(float upper_radius,float lower_radius,float height
     const float pi = 3.141592f;
 
     vertices_cylinder.push_back(0.0f);
-    vertices_cylinder.push_back(height_cylinder/2);
+    vertices_cylinder.push_back(height_cylinder/2*scale.y);
     vertices_cylinder.push_back(0.0f);
     vertices_cylinder.push_back(0.5f);
     vertices_cylinder.push_back(0.0f);
@@ -306,14 +306,14 @@ void Context::Create_Cylinder(float upper_radius,float lower_radius,float height
         x = cosf(angle) * lower_radius;
         z = sinf(angle) * lower_radius;
         vertices_cylinder.push_back(x*scale.x);
-        vertices_cylinder.push_back(-height_cylinder/2);
+        vertices_cylinder.push_back(-height_cylinder/2*scale.y);
         vertices_cylinder.push_back(z*scale.z);
         vertices_cylinder.push_back(i/(float)segment);
         vertices_cylinder.push_back(0.0f);
     }
 
     vertices_cylinder.push_back(0.0f);
-    vertices_cylinder.push_back(-height_cylinder/2);
+    vertices_cylinder.push_back(-height_cylinder/2*scale.y);
     vertices_cylinder.push_back(0.0f);
     vertices_cylinder.push_back(0.5f);
     vertices_cylinder.push_back(1.0f);
